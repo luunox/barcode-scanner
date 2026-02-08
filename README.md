@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Barcode Scanner Pro
 
-## Getting Started
+A mobile-first web application for scanning and searching products by barcode, featuring simulated pricing and local history storage.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-14+-black)
+![React](https://img.shields.io/badge/React-18+-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38bdf8)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Barcode Scanning**: Integrated camera scanner using `html5-qrcode`.
+- **Manual Search**: Validated input for 6-13 digit barcodes.
+- **Product Details**: Fetches data from OpenFoodFacts API.
+- **Price Simulation**: Generates random prices (S/. 5 - 150) for demonstration.
+- **Search History**: Persists recent searches locally.
+- **Mobile-First Design**: Optimized for mobile devices with a responsive container for desktop.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: Next.js 14+ (App Router)
+- **Styling**: Tailwind CSS
+- **State Management**: Zustand (with persistence)
+- **Data Fetching**: TanStack React Query
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Scanning**: Html5-Qrcode
 
-## Learn More
+## getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Clone the repository**
+    ```bash
+    git clone <repository-url>
+    cd barcode-scanner
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+4.  **Open in browser**
+    Navigate to `http://localhost:3000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    > **Note on Camera**: The camera scanner requires a secure context (HTTPS) or `localhost`. If testing on a mobile device via local network IP, the camera might not start unless you serve via HTTPS.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Key Decisions
+
+- **Zustand**: Chosen for global state management due to its simplicity and built-in persistence middleware, perfect for storing search history.
+- **React Query**: Used for data fetching to handle caching, loading, and error states out of the box.
+- **Mobile-First Layout**: The app is wrapped in a constrained container on desktop to simulate a mobile app experience, ensuring the design remains focused on the primary use case.
+- **Html5-Qrcode**: Selected for reliable barcode scanning capabilities directly in the browser.
+
+## Testing with Sample Barcodes
+
+- `7501055363803` - Coca Cola
+- `3017620422003` - Nutella
+- `8076809513685` - Ferrero Rocher
