@@ -132,7 +132,7 @@ export default function Home() {
       )}
 
       {/* Mobile Bottom Nav */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-200 px-6 py-2 flex justify-around shadow-[0_-1px_10px_rgba(0,0,0,0.05)] z-40 max-w-md mx-auto">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-neutral-200 px-6 py-2 flex justify-around shadow-[0_-1px_10px_rgba(0,0,0,0.05)] z-40 mx-auto">
         <button 
           onClick={() => setActiveTab("scan")}
           className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${activeTab === "scan" ? "text-primary" : "text-neutral-400 hover:text-neutral-600"}`}

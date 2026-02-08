@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-neutral-50 antialiased`}>
         <Providers>
-          <main className="mx-auto w-full max-w-md md:max-w-4xl lg:max-w-6xl xl:max-w-7xl min-h-screen bg-background shadow-2xl overflow-hidden relative border-x border-neutral-200/50">
+          <main className="mx-auto w-full min-h-screen bg-background shadow-2xl overflow-hidden relative border-x border-neutral-200/50">
             {children}
           </main>
           <Toaster position="top-center" />

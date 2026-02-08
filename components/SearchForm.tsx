@@ -37,26 +37,33 @@ export function SearchForm({ onSearch, onToggleScanner, isLoading, className }: 
 
   return (
     <div className={cn("w-full space-y-4", className)}>
-      <form onSubmit={handleSubmit} className="flex gap-2">
-        <div className="relative flex-1">
-          <Input
-            type="text"
-            inputMode="numeric"
-            placeholder="Ingresa código (ej. 7501055363803)"
-            value={code}
-            onChange={(e) => {
-              // Only allow numbers
-              const val = e.target.value.replace(/\D/g, '')
-              setCode(val)
-              if (error) setError("")
-            }}
-            className={cn("pr-10", error && "border-destructive focus-visible:ring-destructive")}
-          />
-          {error && <p className="absolute -bottom-5 left-0 text-xs text-destructive">{error}</p>}
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+        <label className="block min-[385px]:hidden text-sm font-medium text-neutral-700">
+          Ingresa código (ej. 7501055363803)
+        </label>
+        <div className="flex gap-2 w-full">
+          <div className="relative flex-1">
+            <Input
+              type="text"
+              inputMode="numeric"
+              placeholder="Ingresa código (ej. 7501055363803)"
+              value={code}
+              onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, '')
+                setCode(val)
+                if (error) setError("")
+              }}
+              className={cn(
+                "pr-10 placeholder:text-transparent min-[385px]:placeholder:text-muted-foreground", 
+                error && "border-destructive focus-visible:ring-destructive"
+              )}
+            />
+            {error && <p className="absolute -bottom-5 left-0 text-xs text-destructive">{error}</p>}
+          </div>
+          <Button type="submit" disabled={isLoading || !code}>
+            {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Search className="h-4 w-4" />}
+          </Button>
         </div>
-        <Button type="submit" disabled={isLoading || !code}>
-          {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Search className="h-4 w-4" />}
-        </Button>
       </form>
       
       <div className="relative">
