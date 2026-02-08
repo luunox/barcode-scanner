@@ -63,7 +63,7 @@ export default function Home() {
       <header className="bg-white border-b border-neutral-200 sticky top-0 z-40 px-4 py-3 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-2">
           <div className="bg-primary rounded p-1.5 text-white">
-            <ScanBarcode className="h-5 w-5" />
+            <ScanBarcode className="h-6 w-6" />
           </div>
           <h1 className="font-bold text-lg text-neutral-900 tracking-tight">ScanPrice</h1>
         </div>
