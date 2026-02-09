@@ -17,14 +17,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.(glb|gltf|mind)$/,
-      type: 'asset/resource',
-    });
-    return config;
-  },
-  turbopack: {},
 };
 
 export default nextConfig;

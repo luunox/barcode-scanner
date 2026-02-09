@@ -5,15 +5,13 @@ import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { ArrowLeft, Camera, RefreshCw, AlertCircle } from "lucide-react"
 
-// Importaciones de assets (manejados por Webpack)
-import mindFile from "../assets/target/menu.mind"
-import piggletModel from "../assets/models/pigglet.glb"
-
 // Definición de los items del menú
+// Asegúrate de que estos archivos existan en tu carpeta public/
+const mindFile = "/assets/target/menu.mind" 
 const menuItems = [
   {
     name: "Entrada",
-    modelPath: piggletModel, 
+    modelPath: "/assets/models/pigglet.glb", // Ruta en public folder
     scale: "1 1 1",
     rotation: "90 0 0"
   },
