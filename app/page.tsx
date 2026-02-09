@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useQuery, useMutation } from "@tanstack/react-query"
 import { motion, AnimatePresence } from "framer-motion"
-import { ScanBarcode, History, ChevronLeft } from "lucide-react"
+import { ScanBarcode, History, ChevronLeft, Box } from "lucide-react"
 import { Toaster, toast } from "sonner"
 
 import { useAppStore } from "@/store/useAppStore"
@@ -68,11 +68,16 @@ export default function Home() {
           <h1 className="font-bold text-lg text-neutral-900 tracking-tight">ScanPrice</h1>
         </div>
         
-        {activeTab === "history" && (
-           <Button variant="ghost" size="sm" onClick={() => setActiveTab("scan")} className="text-primary hover:text-primary/80">
-             <ChevronLeft className="h-4 w-4 mr-1" /> Volver
-           </Button>
-        )}
+        <div className="flex items-center gap-2">
+            <Button variant="ghost" size="icon" onClick={() => window.location.href = '/ar'} className="text-neutral-600 hover:text-primary hover:bg-primary/5 rounded-full" title="Modo AR">
+                <Box className="h-5 w-5" />
+            </Button>
+            {activeTab === "history" && (
+            <Button variant="ghost" size="sm" onClick={() => setActiveTab("scan")} className="text-primary hover:text-primary/80">
+                <ChevronLeft className="h-4 w-4 mr-1" /> Volver
+            </Button>
+            )}
+        </div>
       </header>
 
       {/* Main Content */}
